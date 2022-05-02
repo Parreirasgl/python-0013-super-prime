@@ -13,9 +13,12 @@ number = ""
 while True:
     for i in list_b:
         number += i
-        for i2 in list_a:
+        for i2 in list_b:
             number += i2
-            print(number)
+            for i3 in list_a:
+                number += i3
+                print(number)
+                number = number[:-1]
             number = number[:-1]
         number = number[:-1]
     break
