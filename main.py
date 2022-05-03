@@ -8,17 +8,30 @@
 
 list_a = ["3", "5", "7"]
 list_b = ["0", "2", "3", "5", "7"]
+digits = 3
 number = ""
 
-while True:
-    for i in list_b:
-        number += i
-        for i2 in list_b:
-            number += i2
-            for i3 in list_a:
-                number += i3
-                print(number)
-                number = number[:-1]
-            number = number[:-1]
-        number = number[:-1]
-    break
+list_functions = []
+hundreds = 0
+tens = 0
+units = 0
+
+for i in range(digits):
+  if i == (digits-1):
+    list_functions.append(list_a)
+  else:
+    list_functions.append(list_b)
+
+print(list_functions)
+
+counter = 3 * (5**(digits-1))
+
+for i2 in range(counter):
+ print(f"{list_functions[0][hundreds]} + {list_functions[1][tens]} + {list_functions[2][units]}")
+ units += 1
+ if units == 3:
+   tens += 1
+   units = 0
+ if tens == 5:
+   hundreds += 1
+   tens = 0
