@@ -11,27 +11,31 @@ list_b = ["0", "2", "3", "5", "7"]
 digits = 3
 number = ""
 
-list_functions = []
+possible_digits = []
 hundreds = 0
 tens = 0
 units = 0
 
 for i in range(digits):
   if i == (digits-1):
-    list_functions.append(list_a)
+    possible_digits.append(list_a)
   else:
-    list_functions.append(list_b)
+    possible_digits.append(list_b)
 
-print(list_functions)
+print(possible_digits)
 
 counter = 3 * (5**(digits-1))
 
-for i2 in range(counter):
- print(f"{list_functions[0][hundreds]} + {list_functions[1][tens]} + {list_functions[2][units]}")
- units += 1
- if units == 3:
-   tens += 1
-   units = 0
- if tens == 5:
-   hundreds += 1
-   tens = 0
+while hundreds < 5:
+  print(str(possible_digits[0][hundreds]) + str(possible_digits[1][tens]) + str(possible_digits[2][units]))
+  units += 1
+  if units == 3:
+    tens += 1
+    units = 0
+  if tens == 5:
+    if hundreds == 0:
+      hundreds += 1
+      tens = 1
+    else:
+      hundreds += 1
+      tens = 0
